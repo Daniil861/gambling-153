@@ -1,0 +1,279 @@
+.button {
+	position: relative;
+	z-index: 1;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	width: 264px;
+	height: 70px;
+
+	background-image: linear-gradient(180deg, #723efb 0%, #481cb9 100%);
+	border: 1px solid #5e26ff;
+	border-radius: 70px;
+
+	transition: all 0.3s ease 0s;
+
+	span {
+		font-weight: 600;
+		font-size: 32px;
+		line-height: math.div(39, 32);
+
+		color: #ffffff;
+		text-transform: uppercase;
+	}
+
+	@media (max-height: 650px) {
+		width: 230px;
+		height: 45px;
+		span {
+			font-size: 22px;
+		}
+	}
+
+	&:active {
+		transform: scale(0.97);
+	}
+	&._hold {
+		opacity: 0.5;
+		pointer-events: none;
+	}
+}
+
+//========================================================================================================================================================
+.preloader {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10;
+
+	display: flex;
+	width: 100%;
+	min-height: 100vh;
+
+	background: linear-gradient(180deg, #00479a 0%, #76005c 100%);
+
+	overflow: hidden;
+	transition: all 0.3s ease 0s;
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+
+		background: url("@img/other/bg.png") center / cover no-repeat;
+		mix-blend-mode: luminosity;
+	}
+
+	&._hide {
+		opacity: 0;
+		visibility: hidden;
+
+		transform: translateX(10px);
+	}
+
+	&__block-acces {
+	}
+
+	&__acces {
+	}
+
+	&__button-box {
+		position: absolute;
+		bottom: 42px;
+		left: 50%;
+		transform: translateX(-50%);
+		z-index: 5;
+	}
+
+	// .preloader__button
+
+	&__button {
+	}
+}
+.acces-preloader {
+	position: relative;
+	z-index: 3;
+
+	display: flex;
+	flex-direction: column;
+	max-height: 100vh;
+
+	padding-inline: 20px;
+	padding-block: 30px 110px;
+
+	overflow: auto;
+
+	&._hide {
+		display: none;
+	}
+
+	&__title {
+		font-family: "Inter";
+		font-style: normal;
+		font-weight: 600;
+		font-size: 24px;
+		line-height: math.div(29, 24);
+
+		color: #ffffff;
+		padding-bottom: 35px;
+	}
+
+	// .acces-preloader__text
+
+	&__text {
+		padding-bottom: 12px;
+	}
+}
+
+.text-pre {
+	font-weight: 600;
+	font-size: 14px;
+	line-height: math.div(17, 14);
+	color: #ffffff;
+	@media (min-width: 700px) and (min-height: 700px) {
+		font-size: 18px;
+	}
+
+	&__title {
+		text-transform: uppercase;
+	}
+}
+
+.block-bet {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&._hold {
+		opacity: 0.5;
+		pointer-events: none;
+	}
+
+	// .block-bet__controls
+
+	&__controls {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		column-gap: rem(10);
+		padding: rem(5);
+
+		background: #1a1b1c;
+		border: 0.3px solid #363738;
+		border-radius: rem(13.5);
+		@media (min-height: em(600)) {
+			border: 1px solid #363738;
+		}
+		&._hold {
+			transition: all 0.6s ease 0s;
+			pointer-events: none;
+			opacity: 0.3;
+		}
+	}
+
+	&__minus,
+	&__plus {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		@include adaptiveValue("width", 17, 12, 800, 550, 1);
+		@include adaptiveValue("height", 17, 12, 800, 550, 1);
+		border-radius: 50%;
+
+		background: rgba(118, 123, 133, 0.5);
+		@include adaptiveValue("font-size", 26, 16, 1200, 550, 1);
+		color: #fff;
+		transition: all 0.3s ease 0s;
+		@media (min-height: em(600)) {
+			@include adaptiveValue("width", 35, 25, 1200, 800, 1);
+			@include adaptiveValue("height", 35, 25, 1200, 800, 1);
+		}
+		&:active {
+			transform: scale(0.9);
+		}
+	}
+
+	// .block-bet__bet
+
+	&__bet {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	// .block-bet__coins
+
+	&__coins {
+		min-width: rem(30);
+		padding: 0 rem(5);
+		font-weight: 500;
+		@include adaptiveValue("font-size", 24, 12, 1200, 550, 1);
+		line-height: math.div(16, 14);
+		color: #ffffff;
+		text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+		text-align: center;
+
+		&._no-money {
+			animation: no-money 0.5s ease 2;
+		}
+	}
+}
+
+.bg-btn-blue {
+	min-width: 152px;
+	height: 40px;
+	background-color: #0076cb;
+	border-radius: 50px;
+
+	font-family: "Inter";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: math.div(19, 16);
+
+	color: #ffffff;
+}
+
+.bg-dark {
+	min-width: 152px;
+	height: 40px;
+
+	background-color: #000852;
+	border: 1px solid #2bb3ff;
+	border-radius: 50px;
+
+	font-family: "Inter";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: math.div(24, 20);
+	color: #ffffff;
+	&._gray {
+		background-color: #11131f;
+		border: 1px solid #616263;
+	}
+}
+
+.score {
+	&._no-money {
+		animation: no-money 0.7s ease 2;
+	}
+	&._delete-money {
+		animation: delete-money 0.7s ease;
+	}
+	&._anim-add-money {
+		animation: add-money 0.5s ease 3;
+	}
+}
+
+[type="button"] {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+//========================================================================================================================================================
